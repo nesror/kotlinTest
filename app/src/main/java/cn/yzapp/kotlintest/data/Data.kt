@@ -6,6 +6,7 @@ import kotlin.properties.Delegates
 
 /**
  * @author: GuSiheng
+ * 委托不能放在bean里不然Gson转换无效
  */
 class User(var id: Long) {
     // 使用委托后Gson转换无效！！
@@ -15,12 +16,12 @@ class User(var id: Long) {
         new.length > 1
     }
 
-    var nameJson: String = ""
+    /*var nameJson: String = ""
         get() = name
         set(value) {
             field = value
             name = value
-        }
+        }*/
 
     var books = ArrayList<Book>()
 

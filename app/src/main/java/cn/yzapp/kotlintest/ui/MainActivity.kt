@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         changeName.setOnClickListener {
             mUser.showChineseName = !mUser.showChineseName
-            tvBook.text = mUser.nameJson
+            tvBook.text = mUser.name
         }
     }
 
