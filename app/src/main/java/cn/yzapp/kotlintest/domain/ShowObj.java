@@ -4,9 +4,6 @@ import com.google.gson.Gson;
 
 /**
  * @author: GuSiheng
- * @time: 10/12 012-12:02.
- * @email: gusiheng@qccr.com
- * @desc:
  */
 public class ShowObj<T> {
     private final T obj;

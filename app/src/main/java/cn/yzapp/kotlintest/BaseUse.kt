@@ -5,9 +5,6 @@ import cn.yzapp.kotlintest.data.User
 
 /**
  * @author: GuSiheng
- * @time: 10/8 008-20:43.
- * @email: gusiheng@qccr.com
- * @desc:
  */
 object BaseUse {
     var mUser: User = User(1001)

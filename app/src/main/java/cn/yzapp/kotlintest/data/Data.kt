@@ -6,9 +6,6 @@ import kotlin.properties.Delegates
 
 /**
  * @author: GuSiheng
- * @time: 10/9 009-11:13.
- * @email: gusiheng@qccr.com
- * @desc:
  */
 class User(var id: Long) {
     // 使用委托后Gson转换无效！！
