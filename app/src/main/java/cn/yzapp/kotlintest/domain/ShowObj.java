@@ -1,5 +1,7 @@
 package cn.yzapp.kotlintest.domain;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 /**
@@ -12,11 +14,13 @@ public class ShowObj<T> {
     ShowObj(T obj) {
         this.obj = obj;
         this.gson = new Gson();
+        Log.d(getClass().getSimpleName(), obj.toString());
     }
 
     ShowObj(T obj, Gson gson) {
         this.obj = obj;
         this.gson = gson;
+        Log.d(getClass().getSimpleName(), obj.toString());
     }
 
     public String show() {
