@@ -2,7 +2,6 @@ package cn.yzapp.kotlintest.ui
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import cn.yzapp.kotlintest.BaseUse
 import cn.yzapp.kotlintest.R
 import cn.yzapp.kotlintest.data.User
@@ -11,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.content_main2.*
 import kotlin.properties.Delegates
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     var mUser: User by Delegates.notNull()
 
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener { view ->
             mUser = BaseUse.test()
-            Snackbar.make(view, "用第" + mUser.books.size + "种方式", Snackbar.LENGTH_LONG).setAction("CLEAR", {
+            snackbar(view, "用第" + mUser.books.size + "种方式").setAction("CLEAR", {
                 mUser.books.clear()
                 tvBook.text = ShowAny(mUser).show()
             }).show()
@@ -41,11 +40,13 @@ class MainActivity : AppCompatActivity() {
 
         tvKill.setOnClickListener {
             tvBook.text = ShowAny(BaseUse.testMapConfig()).show()
+            toast("tvKill")
         }
 
         changeName.setOnClickListener {
             mUser.showChineseName = !mUser.showChineseName
             tvBook.text = mUser.name
+            toast("changeName")
         }
     }
 
