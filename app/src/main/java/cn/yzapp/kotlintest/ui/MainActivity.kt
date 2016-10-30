@@ -1,8 +1,6 @@
 package cn.yzapp.kotlintest.ui
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import cn.yzapp.kotlintest.App
 import cn.yzapp.kotlintest.BaseUse
 import cn.yzapp.kotlintest.R
 import cn.yzapp.kotlintest.data.User
@@ -60,7 +58,7 @@ class MainActivity : BaseActivity() {
         }
 
         saveBook.setOnClickListener {
-            sp.put(BOOK,bookList.text.toString())
+            sp.put(BOOK, bookList.text.toString())
         }
 
         showBook.setOnClickListener {

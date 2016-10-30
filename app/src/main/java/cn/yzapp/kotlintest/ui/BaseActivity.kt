@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import cn.yzapp.kotlintest.utils.SharedPreferencesUtils
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -42,6 +42,6 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun ImageView.load(url: String) {
-        Picasso.with(this.context).load(url).into(this)
+        Glide.with(this.context).load(url).into(this)
     }
 }
