@@ -2,6 +2,7 @@ package cn.yzapp.kotlintest.ui
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import cn.yzapp.kotlintest.App
 import cn.yzapp.kotlintest.BaseUse
 import cn.yzapp.kotlintest.R
 import cn.yzapp.kotlintest.data.User
@@ -12,6 +13,11 @@ import kotlin.properties.Delegates
 
 class MainActivity : BaseActivity() {
 
+    companion object {
+        val BOOK = "BOOK"
+    }
+
+    // 标准委托:notNull
     var mUser: User by Delegates.notNull()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,27 +33,42 @@ class MainActivity : BaseActivity() {
     }
 
     private fun init() {
-        tvBook.text = ShowAny(mUser).show()
+
+        bookList.text = ShowAny(mUser).show()
 
         fab.setOnClickListener { view ->
             mUser = BaseUse.test()
-            snackbar(view, "用第" + mUser.books.size + "种方式").setAction("CLEAR", {
+            //
+            view.snackbar("用第" + mUser.books.size + "种方式").setAction("CLEAR", {
                 mUser.books.clear()
-                tvBook.text = ShowAny(mUser).show()
+                bookList.text = ShowAny(mUser).show()
             }).show()
-            tvBook.text = ShowAny(mUser).show()
+            bookList.text = ShowAny(mUser).show()
         }
 
-        tvKill.setOnClickListener {
-            tvBook.text = ShowAny(BaseUse.testMapConfig()).show()
-            toast("tvKill")
+        killQb.setOnClickListener {
+            // tvBook.text = ShowAny(BaseUse.testMapConfig()).show()
+            bookList.text = BaseUse.testMapConfig().userName + BaseUse.testMapConfig().book.name
+            toast("killQb")
+
         }
 
         changeName.setOnClickListener {
             mUser.showChineseName = !mUser.showChineseName
-            tvBook.text = mUser.name
+            bookList.text = mUser.name
             toast("changeName")
         }
+
+        saveBook.setOnClickListener {
+            sp.put(BOOK,bookList.text.toString())
+        }
+
+        showBook.setOnClickListener {
+            bookList.text = sp.get(BOOK)
+        }
+
+        // 通过扩展函数使imageview可以直接加载网络图片
+        img.load("http://img1.mydrivers.com/img/20161030/29f3e60b5f33428fbecb034a8db38978.jpg")
     }
 
 }

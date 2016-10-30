@@ -1,15 +1,16 @@
 package cn.yzapp.kotlintest.data
 
+import android.util.Log
 import java.util.*
 import kotlin.properties.Delegates
 import kotlin.reflect.KProperty
 
 /**
- * @author: GuSiheng
+ * @author: nestor
  * 委托不能放在bean里不然Gson转换无效
  */
-class User(var id: Long){
-    // 使用委托后Gson转换无效！！
+class User(var id: Long) {
+    // 自定义委托
     var name: String by MyDelegate()
 
     var books = ArrayList<Book>()
@@ -18,20 +19,29 @@ class User(var id: Long){
         books.add(book)
     }
 
+    // 标准委托:观察者模式
     var showChineseName by Delegates.observable(false) {
         d, old, new ->
         name = if (new) "丘比" else "Incubator"
     }
 }
 
+// 自定义委托
 class MyDelegate() {
+    var delegateName: String = ""
     operator fun getValue(thisRef: Any?, prop: KProperty<*>): String {
-        if(prop.)
-        return "$thisRef, thank you for delegating '${prop}' to me!"
+        Log.d(this.javaClass.simpleName, " $thisRef 把 ${prop.name} 委托给我")
+        return delegateName
     }
 
     operator fun setValue(thisRef: Any?, prop: KProperty<*>, value: String) {
-        println("$value has been assigned to ${prop.name} in $thisRef")
+        Log.d(this.javaClass.simpleName, "在 $thisRef 中把 $value 分配给 ${prop.name}")
+
+        // 名字多余1个才有效
+        if (value.length > 1) {
+            delegateName = value
+        }
+
     }
 }
 

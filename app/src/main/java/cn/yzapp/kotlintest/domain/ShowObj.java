@@ -5,7 +5,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 /**
- * @author: GuSiheng
+ * @author: nestor
  */
 public class ShowObj<T> {
     private final T obj;

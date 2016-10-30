@@ -1,12 +1,10 @@
 package cn.yzapp.kotlintest
 
-import android.content.Context
-import android.widget.Toast
 import cn.yzapp.kotlintest.data.Book
 import cn.yzapp.kotlintest.data.User
 
 /**
- * @author: GuSiheng
+ * @author: nestor
  */
 object BaseUse {
     var mUser: User = User(1001)
@@ -15,13 +13,14 @@ object BaseUse {
         return mUser
     }
 
-    class MapConfig(map: Map<String, Any?>) {
-        val userName: String by map
-        val userId: Long by map
-        val book: Book by map
+    // 标准委托:以 Map 形式保存属性的值
+    class MapConfig(map: MutableMap<String, Any?>) {
+        var userName: String by map
+        var userId: Long by map
+        var book: Book by map
     }
 
-    fun testMapConfig(): MapConfig = MapConfig(mapOf(
+    fun testMapConfig(): MapConfig = MapConfig(mutableMapOf(
             "userName" to "晓美焰",
             "userId" to 2001,
             "book" to Book("《怎么杀死丘比》")

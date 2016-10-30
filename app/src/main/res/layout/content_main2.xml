@@ -14,23 +14,44 @@
     tools:showIn="@layout/activity_main2">
 
     <TextView
-        android:id="@+id/tvBook"
+        android:id="@+id/bookList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="丘比的书" />
 
     <Button
-        android:id="@+id/tvKill"
+        android:id="@+id/killQb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBook"
-        android:text="晓美焰的反击"/>
+        android:layout_below="@+id/bookList"
+        android:text="晓美焰的反击" />
 
     <Button
         android:id="@+id/changeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvKill"
-        android:text="通过委托来改名名称"/>
+        android:layout_below="@+id/killQb"
+        android:text="通过委托来改名名称" />
+
+    <Button
+        android:id="@+id/saveBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changeName"
+        android:text="保存显示的book" />
+
+    <Button
+        android:id="@+id/showBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changeName"
+        android:layout_toRightOf="@+id/saveBook"
+        android:text="显示保存的book" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/saveBook" />
 
 </RelativeLayout>
