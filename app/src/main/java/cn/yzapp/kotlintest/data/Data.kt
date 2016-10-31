@@ -1,6 +1,6 @@
 package cn.yzapp.kotlintest.data
 
-import android.util.Log
+import cn.yzapp.kotlintest.debug
 import java.util.*
 import kotlin.properties.Delegates
 import kotlin.reflect.KProperty
@@ -30,12 +30,12 @@ class User(var id: Long) {
 class MyDelegate() {
     var delegateName: String = ""
     operator fun getValue(thisRef: Any?, prop: KProperty<*>): String {
-        Log.d(this.javaClass.simpleName, " $thisRef 把 ${prop.name} 委托给我")
+        debug(" $thisRef 把 ${prop.name} 委托给我")
         return delegateName
     }
 
     operator fun setValue(thisRef: Any?, prop: KProperty<*>, value: String) {
-        Log.d(this.javaClass.simpleName, "在 $thisRef 中把 $value 分配给 ${prop.name}")
+        debug("在 $thisRef 中把 $value 分配给 ${prop.name}")
 
         // 名字多余1个才有效
         if (value.length > 1) {

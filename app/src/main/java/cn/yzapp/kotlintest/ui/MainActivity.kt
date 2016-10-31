@@ -1,8 +1,8 @@
 package cn.yzapp.kotlintest.ui
 
 import android.os.Bundle
-import cn.yzapp.kotlintest.BaseUse
-import cn.yzapp.kotlintest.R
+import android.view.View
+import cn.yzapp.kotlintest.*
 import cn.yzapp.kotlintest.data.User
 import cn.yzapp.kotlintest.domain.ShowAny
 import kotlinx.android.synthetic.main.activity_main2.*
@@ -25,7 +25,6 @@ class MainActivity : BaseActivity() {
         setSupportActionBar(toolbar)
 
         mUser = BaseUse.test()
-        mUser.name = "dsgfdg"
 
         init()
     }
@@ -36,7 +35,7 @@ class MainActivity : BaseActivity() {
 
         fab.setOnClickListener { view ->
             mUser = BaseUse.test()
-            //
+            // 使用了扩展函数
             view.snackbar("用第" + mUser.books.size + "种方式").setAction("CLEAR", {
                 mUser.books.clear()
                 bookList.text = ShowAny(mUser).show()
@@ -67,6 +66,10 @@ class MainActivity : BaseActivity() {
 
         // 通过扩展函数使imageview可以直接加载网络图片
         img.load("http://img1.mydrivers.com/img/20161030/29f3e60b5f33428fbecb034a8db38978.jpg")
+    }
+
+    fun setOnClickListener(listener: (View) -> Unit){
+
     }
 
 }
