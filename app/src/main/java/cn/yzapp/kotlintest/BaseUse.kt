@@ -4,7 +4,8 @@ import cn.yzapp.kotlintest.data.Book
 import cn.yzapp.kotlintest.data.User
 
 /**
- * @author: nestor
+ * Created by Nestor on 10/31 030.
+ * object 相当于静态类
  */
 object BaseUse {
     var mUser: User = User(1001)
