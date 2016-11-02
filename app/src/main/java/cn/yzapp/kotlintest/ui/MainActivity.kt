@@ -1,7 +1,6 @@
 package cn.yzapp.kotlintest.ui
 
 import android.os.Bundle
-import android.view.View
 import cn.yzapp.kotlintest.*
 import cn.yzapp.kotlintest.data.User
 import cn.yzapp.kotlintest.domain.ShowAny
@@ -17,6 +16,7 @@ class MainActivity : BaseActivity() {
 
     // 标准委托:notNull
     var mUser: User by Delegates.notNull()
+    var mCustomLambdas: CustomLambdas by Delegates.notNull()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +31,12 @@ class MainActivity : BaseActivity() {
 
     private fun init() {
 
+        // lambdas匿名函数
+        mCustomLambdas = CustomLambdas ({ s ->
+            bookList.text = s
+        })
+
+        // 类，构造函数
         bookList.text = ShowAny(mUser).show()
 
         fab.setOnClickListener { view ->
@@ -44,19 +50,21 @@ class MainActivity : BaseActivity() {
         }
 
         killQb.setOnClickListener {
-            // tvBook.text = ShowAny(BaseUse.testMapConfig()).show()
+            // 标准委托:以 Map 形式保存属性的值
             bookList.text = BaseUse.testMapConfig().userName + BaseUse.testMapConfig().book.name
             toast("killQb")
 
         }
 
         changeName.setOnClickListener {
+            // 标准委托:观察者模式
             mUser.showChineseName = !mUser.showChineseName
             bookList.text = mUser.name
             toast("changeName")
         }
 
         saveBook.setOnClickListener {
+            // 标准委托:惰加载
             sp.put(BOOK, bookList.text.toString())
         }
 
@@ -64,12 +72,14 @@ class MainActivity : BaseActivity() {
             bookList.text = sp.get(BOOK)
         }
 
+        lambdas.setOnClickListener {
+            mCustomLambdas.changeContent("lambdas")
+        }
+
         // 通过扩展函数使imageview可以直接加载网络图片
         img.load("http://img1.mydrivers.com/img/20161030/29f3e60b5f33428fbecb034a8db38978.jpg")
-    }
-
-    fun setOnClickListener(listener: (View) -> Unit){
 
     }
+
 
 }

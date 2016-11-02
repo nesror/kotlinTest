@@ -24,6 +24,7 @@ class User(var id: Long) {
         d, old, new ->
         name = if (new) "丘比" else "Incubator"
     }
+
 }
 
 // 自定义委托
