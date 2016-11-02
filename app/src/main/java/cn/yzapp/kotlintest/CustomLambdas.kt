@@ -1,10 +1,8 @@
 package cn.yzapp.kotlintest
 
 /**
- * @author: GuSiheng
- * @time: 11/2 002-16:09.
- * @email: gusiheng@qccr.com
- * @desc:
+ * Created by Nestor on 10/31 030.
+ * lambdas匿名函数
  */
 class CustomLambdas(var listener: (String) -> Unit) {
     fun changeContent(newContent: String) {
