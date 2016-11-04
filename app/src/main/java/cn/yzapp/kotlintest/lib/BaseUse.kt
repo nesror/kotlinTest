@@ -1,4 +1,4 @@
-package cn.yzapp.kotlintest
+package cn.yzapp.kotlintest.lib
 
 import cn.yzapp.kotlintest.data.Book
 import cn.yzapp.kotlintest.data.User

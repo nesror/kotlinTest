@@ -1,4 +1,4 @@
-package cn.yzapp.kotlintest
+package cn.yzapp.kotlintest.lib
 
 import android.content.Context
 import android.support.design.widget.Snackbar

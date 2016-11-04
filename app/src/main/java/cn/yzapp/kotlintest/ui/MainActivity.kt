@@ -4,6 +4,7 @@ import android.os.Bundle
 import cn.yzapp.kotlintest.*
 import cn.yzapp.kotlintest.data.User
 import cn.yzapp.kotlintest.domain.ShowAny
+import cn.yzapp.kotlintest.lib.*
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.content_main2.*
 import kotlin.properties.Delegates

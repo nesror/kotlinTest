@@ -1,6 +1,6 @@
 package cn.yzapp.kotlintest.data
 
-import cn.yzapp.kotlintest.debug
+import cn.yzapp.kotlintest.lib.debug
 import java.util.*
 import kotlin.properties.Delegates
 import kotlin.reflect.KProperty
