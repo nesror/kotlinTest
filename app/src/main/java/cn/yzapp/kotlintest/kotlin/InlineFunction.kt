@@ -1,4 +1,4 @@
-package cn.yzapp.kotlintest.lib
+package cn.yzapp.kotlintest.kotlin
 
 import android.util.Log
 

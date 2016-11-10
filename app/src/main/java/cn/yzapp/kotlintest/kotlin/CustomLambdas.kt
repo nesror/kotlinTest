@@ -1,4 +1,4 @@
-package cn.yzapp.kotlintest.lib
+package cn.yzapp.kotlintest.kotlin
 
 /**
  * Created by Nestor on 11/02 030.
